@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vetores</title>
+</head>
+<body>
+    
+    <h1>Vetor Embaralhado e Ordenado</h1>
+
+    {% if vetor_json %}
+        <h2>Vetor Aleatório</h2>
+        <p>{{ vetor_json.vetor_aleatorio }}</p>
+
+        <h2>Vetor Ordenado</h2>
+        <p>{{ vetor_json.vetor_ordenado }}</p>
+
+        <h2>Tempos de Embaralhamento</h2>
+        <ul>
+            {% for tempo in vetor_json.tempos_embaralhamento %}
+                <li>{{ tempo }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Erro ao gerar o vetor.</p>
+    {% endif %}
+
+</body>
+</html>
