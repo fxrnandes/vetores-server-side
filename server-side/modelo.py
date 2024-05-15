@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine
 
-# Substitua por credenciais reais do seu banco de dados
+# Substituir por credenciais reais do banco de dados
 URL_BANCO_DE_DADOS = "mysql+mysqlconnector://usuario:senha@host:porta/nome_do_banco"
 
 engine = create_engine(URL_BANCO_DE_DADOS)

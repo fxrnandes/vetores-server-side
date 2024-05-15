@@ -17,7 +17,7 @@ def get_vetor_json():
     if tamanho_vetor is None or tamanho_vetor < 1 or tamanho_vetor > 50000:
         return "Tamanho do vetor inválido. O tamanho do vetor deve ser um número inteiro entre 1 e 50.000."
 
-    # Conectar ao banco de dados MySQL
+    # Conecta ao banco de dados MySQL
     conn = mysql.connector.connect(host="localhost", database="nome_banco", user="usuario", password="senha")
     cursor = conn.cursor()
 
@@ -61,7 +61,7 @@ def get_vetor_json():
     # Retornar o template HTML com dados em JSON
     return render_template('vetor.html', vetor_json=jsonify(vetor_json))
 
-# Função para gerar o vetor (implemente a lógica de acordo com suas necessidades)
+# Função para gerar o vetor 
 def gerar_vetor(tamanho_vetor):
     """
     Gera um vetor aleatório de números inteiros sem repetição até 50.000 utilizando o algoritmo 'reservoir sampling'.
