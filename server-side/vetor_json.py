@@ -1,6 +1,6 @@
 from flask import Flask, render_template, jsonify, request
 from graficos import bar_chart, bubble_chart, dot_plot, line_chart, scatter_plot
-import mysql_connector
+import mysql.connector
 import time
 import random
 
@@ -18,7 +18,7 @@ def get_vetor_json():
         return "Tamanho do vetor inválido. O tamanho do vetor deve ser um número inteiro entre 1 e 50.000."
 
     # Conectar ao banco de dados MySQL
-    conn = mysql_connector.connect(host="localhost", database="nome_banco", user="usuario", password="senha")
+    conn = mysql.connector.connect(host="localhost", database="nome_banco", user="usuario", password="senha")
     cursor = conn.cursor()
 
     # Gerar o vetor

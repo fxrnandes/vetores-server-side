@@ -1,16 +1,16 @@
 import random
-import mysql_connector
+import mysql.connector
 
-# Importe o módulo 'vetor_json'
+# Importa o módulo 'vetor_json'
 from vetor_json import app, get_vetor_json
 
 # Conexão com o banco de dados
-db = mysql_connector.connect(host="localhost", user="usuario", password="senha", database="nome_banco")
+db = mysql.connector.connect(host="localhost", user="usuario", password="senha", database="nome_banco")
 cursor = db.cursor()
 
 def embaralhar_fisher_yates(vetor):
     """
-    Embaralha um vetor de números não duplicados usando o algoritmo de Fisher-Yates.
+    embaralha um vetor de números não duplicados usando o algoritmo de Fisher-Yates.
 
     Args:
         vetor: Uma lista de números não duplicados.
@@ -33,7 +33,8 @@ vetor_original = list(range(1, 50001))
 # Embaralhe o vetor 3 vezes e imprima o resultado
 for i in range(3):
     embaralhar_fisher_yates(vetor_original)  # Chamada do Fisher-Yates
-    print(f"Vetor embaralhado #{i + 1}: {vetor_original[:10]}... (primeiros 10 elementos)")  # Imprime apenas os primeiros 10 elementos
+    print(f"Vetor embaralhado #{i + 1}: {vetor_original[:10]}... (primeiros 10 elementos)")
+    # Imprime apenas os primeiros 10 elementos
 
 # Inicie o aplicativo Flask
 if __name__ == '__main__':
