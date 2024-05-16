@@ -5,7 +5,7 @@ import mysql.connector
 from vetor_json import app, get_vetor_json
 
 # Conexão com o banco de dados
-db = mysql.connector.connect(host="localhost", user="usuario", password="senha", database="nome_banco")
+db = mysql.connector.connect(host="127.0.0.1:3306", user="root", password="", database="aula")
 cursor = db.cursor()
 
 def embaralhar_fisher_yates(vetor):
