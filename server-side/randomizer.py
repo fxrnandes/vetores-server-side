@@ -8,6 +8,7 @@ from vetor_json import app, get_vetor_json
 db = mysql.connector.connect(host="127.0.0.1:3306", user="root", password="", database="aula")
 cursor = db.cursor()
 
+
 def embaralhar_fisher_yates(vetor):
     """
     embaralha um vetor de números não duplicados usando o algoritmo de Fisher-Yates.
@@ -26,6 +27,7 @@ def embaralhar_fisher_yates(vetor):
         vetor[i], vetor[j] = vetor[j], vetor[i]
 
     return vetor
+
 
 # Gera um vetor de 50.000 números não duplicados de 1 a 50.000
 vetor_original = list(range(1, 50001))
