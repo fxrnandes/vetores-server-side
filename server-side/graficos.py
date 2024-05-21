@@ -1,37 +1,35 @@
+import random
 import seaborn as sns
 import matplotlib.pyplot as plt
+import os
 
 
-# Scatter Plot - Gráfico de Dispersão
-def scatter_plot(x, y, filename):
-    sns.scatterplot(x=x, y=y)
+def save_plot(plot_func, filename, **kwargs):
+    plot_func(**kwargs)
     plt.savefig(filename)
-    plt.show()
+    plt.close()
 
 
-# Line Chart - Gráfico de Linhas
-def line_chart(x, y, filename):
-    sns.lineplot(x=x, y=y)
-    plt.savefig(filename)
-    plt.show()
+def create_all_charts(vetor_embaralhado, vetor_gerado):
+    os.makedirs('static/images', exist_ok=True)
 
+    scatter_path = 'static/images/scatter_plot.png'
+    line_path = 'static/images/line_chart.png'
+    bar_path = 'static/images/bar_chart.png'
+    bubble_path = 'static/images/bubble_chart.png'
+    dot_path = 'static/images/dot_plot.png'
 
-# Bar Chart - Gráfico de Barras
-def bar_chart(x, y, filename):
-    sns.barplot(x=x, y=y)
-    plt.savefig(filename)
-    plt.show()
+    save_plot(sns.scatterplot, scatter_path, x=range(len(vetor_embaralhado)), y=vetor_embaralhado)
+    save_plot(sns.lineplot, line_path, x=range(len(vetor_gerado)), y=vetor_gerado)
+    save_plot(sns.barplot, bar_path, x=range(len(vetor_gerado)), y=vetor_gerado)
+    save_plot(sns.scatterplot, bubble_path, x=range(len(vetor_embaralhado)), y=vetor_embaralhado,
+              size=[random.randint(1, 100) for _ in range(len(vetor_embaralhado))])
+    save_plot(sns.stripplot, dot_path, x=range(len(vetor_embaralhado)), y=vetor_embaralhado)
 
-
-# Bubble Chart - Gráfico de Bolhas
-def bubble_chart(x, y, size, filename):
-    sns.scatterplot(x=x, y=y, size=size)
-    plt.savefig(filename)
-    plt.show()
-
-
-# Dot Plot - Gráfico de Pontos
-def dot_plot(x, y, filename):
-    sns.stripplot(x=x, y=y)
-    plt.savefig(filename)
-    plt.show()
+    return {
+        "scatter": 'static/images/scatter_plot.png',
+        "line": 'static/images/line_chart.png',
+        "bar": 'static/images/bar_chart.png',
+        "bubble": 'static/images/bubble_chart.png',
+        "dot": 'static/images/dot_plot.png'
+    }

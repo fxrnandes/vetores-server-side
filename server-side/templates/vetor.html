@@ -6,11 +6,10 @@
     <title>Vetores</title>
 </head>
 <body>
-    
     <h1>Vetor Embaralhado e Ordenado</h1>
 
     {% if vetor_json %}
-        <h2>Vetor Aleatório</h2>
+        <h2>Vetor Embaralhado</h2>
         <p>{{ vetor_json.vetor_aleatorio }}</p>
 
         <h2>Vetor Ordenado</h2>
@@ -22,9 +21,35 @@
                 <li>{{ tempo }}</li>
             {% endfor %}
         </ul>
+
+        <h2>Gráficos</h2>
+        <div>
+            <h3>Scatter Plot</h3>
+            <img src="{{ url_for('static', filename=vetor_json.graficos.scatter) }}" alt="Scatter Plot">
+            <a href="{{ url_for('static', filename=vetor_json.graficos.scatter) }}" download>Download</a>
+        </div>
+        <div>
+            <h3>Line Chart</h3>
+            <img src="{{ url_for('static', filename=vetor_json.graficos.line) }}" alt="Line Chart">
+            <a href="{{ url_for('static', filename=vetor_json.graficos.line) }}" download>Download</a>
+        </div>
+        <div>
+            <h3>Bar Chart</h3>
+            <img src="{{ url_for('static', filename=vetor_json.graficos.bar) }}" alt="Bar Chart">
+            <a href="{{ url_for('static', filename=vetor_json.graficos.bar) }}" download>Download</a>
+        </div>
+        <div>
+            <h3>Bubble Chart</h3>
+            <img src="{{ url_for('static', filename=vetor_json.graficos.bubble) }}" alt="Bubble Chart">
+            <a href="{{ url_for('static', filename=vetor_json.graficos.bubble) }}" download>Download</a>
+        </div>
+        <div>
+            <h3>Dot Plot</h3>
+            <img src="{{ url_for('static', filename=vetor_json.graficos.dot) }}" alt="Dot Plot">
+            <a href="{{ url_for('static', filename=vetor_json.graficos.dot) }}" download>Download</a>
+        </div>
     {% else %}
         <p>Erro ao gerar o vetor.</p>
     {% endif %}
-
 </body>
 </html>
