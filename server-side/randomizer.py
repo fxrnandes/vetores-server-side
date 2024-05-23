@@ -1,5 +1,6 @@
 import random
 
+
 def embaralhar_fisher_yates(vetor):
     n = len(vetor)
     for i in range(n - 1, 0, -1):

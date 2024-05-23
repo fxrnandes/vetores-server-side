@@ -11,7 +11,7 @@ def generate_vetor_json(tamanho_vetor=1000):
         return {"error": "Tamanho do vetor inválido. Deve estar entre 1 e 50.000."}
 
     try:
-        conn = mysql.connector.connect(host="127.0.0.1", port=3306, database="aula", user="root", password="")
+        conn = mysql.connector.connect(host="127.0.0.1", port=3306, database="n2-ss", user="root", password="")
         cursor = conn.cursor()
     except mysql.connector.Error as e:
         return {"error": f"Erro ao conectar ao banco de dados: {e}"}
