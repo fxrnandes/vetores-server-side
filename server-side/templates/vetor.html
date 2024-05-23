@@ -4,6 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vetores</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: #343a40;
+        }
+
+        h2 {
+            color: #495057;
+        }
+
+        p {
+            color: #212529;
+            background-color: #ffffff;
+            padding: 10px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #ffffff;
+            color: #212529;
+            margin: 5px 0;
+            padding: 10px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .chart-container {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .chart {
+            margin: 10px;
+            text-align: center;
+        }
+
+        .chart img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .chart a {
+            display: inline-block;
+            margin-top: 5px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .chart a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <h1>Vetor Embaralhado e Ordenado</h1>
@@ -22,31 +100,40 @@
             {% endfor %}
         </ul>
 
+        <h2>Tempos de Ordenação</h2>
+        <ul>
+            {% for tempo in vetor_json.tempos_ordenacao %}
+                <li>{{ tempo }}</li>
+            {% endfor %}
+        </ul>
+
         <h2>Gráficos</h2>
-        <div>
-            <h3>Scatter Plot</h3>
-            <img src="{{ url_for('static', filename=vetor_json.graficos.scatter) }}" alt="Scatter Plot">
-            <a href="{{ url_for('static', filename=vetor_json.graficos.scatter) }}" download>Download</a>
-        </div>
-        <div>
-            <h3>Line Chart</h3>
-            <img src="{{ url_for('static', filename=vetor_json.graficos.line) }}" alt="Line Chart">
-            <a href="{{ url_for('static', filename=vetor_json.graficos.line) }}" download>Download</a>
-        </div>
-        <div>
-            <h3>Bar Chart</h3>
-            <img src="{{ url_for('static', filename=vetor_json.graficos.bar) }}" alt="Bar Chart">
-            <a href="{{ url_for('static', filename=vetor_json.graficos.bar) }}" download>Download</a>
-        </div>
-        <div>
-            <h3>Bubble Chart</h3>
-            <img src="{{ url_for('static', filename=vetor_json.graficos.bubble) }}" alt="Bubble Chart">
-            <a href="{{ url_for('static', filename=vetor_json.graficos.bubble) }}" download>Download</a>
-        </div>
-        <div>
-            <h3>Dot Plot</h3>
-            <img src="{{ url_for('static', filename=vetor_json.graficos.dot) }}" alt="Dot Plot">
-            <a href="{{ url_for('static', filename=vetor_json.graficos.dot) }}" download>Download</a>
+        <div class="chart-container">
+            <div class="chart">
+                <h3>Scatter Plot</h3>
+                <img src="{{ url_for('static', filename=vetor_json.graficos.scatter) }}" alt="Scatter Plot">
+                <a href="{{ url_for('static', filename=vetor_json.graficos.scatter) }}" download>Download</a>
+            </div>
+            <div class="chart">
+                <h3>Line Chart</h3>
+                <img src="{{ url_for('static', filename=vetor_json.graficos.line) }}" alt="Line Chart">
+                <a href="{{ url_for('static', filename=vetor_json.graficos.line) }}" download>Download</a>
+            </div>
+            <div class="chart">
+                <h3>Bar Chart</h3>
+                <img src="{{ url_for('static', filename=vetor_json.graficos.bar) }}" alt="Bar Chart">
+                <a href="{{ url_for('static', filename=vetor_json.graficos.bar) }}" download>Download</a>
+            </div>
+            <div class="chart">
+                <h3>Bubble Chart</h3>
+                <img src="{{ url_for('static', filename=vetor_json.graficos.bubble) }}" alt="Bubble Chart">
+                <a href="{{ url_for('static', filename=vetor_json.graficos.bubble) }}" download>Download</a>
+            </div>
+            <div class="chart">
+                <h3>Dot Plot</h3>
+                <img src="{{ url_for('static', filename=vetor_json.graficos.dot) }}" alt="Dot Plot">
+                <a href="{{ url_for('static', filename=vetor_json.graficos.dot) }}" download>Download</a>
+            </div>
         </div>
     {% else %}
         <p>Erro ao gerar o vetor.</p>
